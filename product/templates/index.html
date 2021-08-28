@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}
+      Home Page
+    {% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <br><br>
+        <h2 class="display-8"><center>MARK1 YAZILIM </center></h2>
+        <br><br>
+        <br><br>
+
+    </div>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    {% for product in products %}
+                    <div class="box">
+                        <article class="media">
+                            <ul class="media-content">
+                                <ul>
+                                    <li>
+                                        <span class="title">{{ product.name }}, {{ product.product_id}}</span>
+                                        <br>
+                                        <br>
+                                        <span class="subtitle">{{ product.miad }}, {{ product.stock}}</span>
+                                        <br>
+                                        <br>
+
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </article>
+                        <div style="display:flex; justify-content:flex-end;width:100%; padding:0;">
+                            <a href="{% url 'purchase' product.name %}" class="btn btn-info btn-xs">Satın al</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+  {% endblock content %}
