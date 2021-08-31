@@ -1,0 +1,73 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css'%}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                                <form method="post" id="form" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="card mb-2">
+                                        <div class="card-body p-0">
+                                            <label for="inputEmail" class="sr-only">Kullanıcı Adı</label>
+                                            {{ form.username }}
+                                            <span class="text-error">{{ form.username.errors }}</span>
+                                            <hr class="my-0">
+                                            <label for="inputPassword" class="sr-only">Email</label>
+                                            {{ form.email }}
+                                            <span class="text-error">{{ form.email.errors }}</span>
+                                            <hr class="my-0">
+                                            <label for="inputPassword" class="sr-only">Şifre</label>
+                                            {{ form.password1 }}
+                                            <span class="text-error">{{ form.password1.errors }}</span>
+                                            <hr class="my-0">
+                                            <label for="inputPassword" class="sr-only">Şifre Tekrarı</label>
+                                            {{ form.password2 }}
+                                            <span class="text-error">{{ form.password2.errors }}</span>
+                                            <hr class="my-0">
+                                            <p>
+                                                {% if message %}
+                                                    {{ message }}
+                                                {% endif %}
+                                            </p>
+
+                                        </div>
+                                </div>
+
+                                <div class="text-left mb-4">
+                                    <button type="submit"  class=" btn btn-primary primary-gradient">Kayıt ol</button>
+                                </div>
+                                </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{% static 'images/signup-image.jpg'%}" alt="sing up image"></figure>
+                        <a href="#" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'js/main.js'%}"></script>
+</body><
+</html>
